@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: springAnimal
+
+animal:
+  names:
+    - Dusya
+    - Rusya
+    - Augora
+    - Lia
+    - Parkinson
+  breeds:
+    - dobermobs
+    - mobsohusky
+    - labrador
+    - kit
+    - beluga
+  costs:
+    - 1000
+    - 2000
+    - 3000
+    - 4000
+    - 5000
+  characters:
+    - wired
+    - funny
+    - angry
+    - slowly
+    - cute
+
+
