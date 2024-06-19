@@ -5,6 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Scope;
 import siebel.springanimal.animal.Animal;
 import siebel.springanimal.animal.CreateAnimalService;
 import siebel.springanimal.animal.ResultReader;
@@ -20,6 +21,12 @@ public class SpringAnimalApplication {
     @Bean
     public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
         return args -> app(ctx);
+    }
+
+    @Bean
+    @Scope("prototype")
+    public CreateAnimalService createAnimalService() {
+        return new CreateAnimalService();
     }
 
     private static void app(ApplicationContext ctx) {

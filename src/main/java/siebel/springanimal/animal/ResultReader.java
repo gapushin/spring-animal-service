@@ -18,9 +18,13 @@ public class ResultReader {
         return new String(Base64.getDecoder().decode(str));
     }
 
-    public void logAnimalDataFromFile(String path) {
+    public void logAnimalDataFromFile(String path) throws RuntimeException {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+
+        if (path == null) {
+            throw new RuntimeException("Wrong path");
+        }
 
         File file = new File(path);
 
@@ -39,7 +43,7 @@ public class ResultReader {
 
     public void logFileStringsCount(String path) {
         try {
-            long count = (long) Files.readAllLines(Paths.get(path)).size();
+            long count = Files.readAllLines(Paths.get(path)).size();
             System.out.println("Количество строк в файле" + path + ": " + count);
         } catch (IOException e) {
             throw new RuntimeException(e);
