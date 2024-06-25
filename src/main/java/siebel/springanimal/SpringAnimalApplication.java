@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Scope;
 import siebel.springanimal.animal.Animal;
 import siebel.springanimal.animal.CreateAnimalService;
 import siebel.springanimal.animal.ResultReader;
+import siebel.springanimal.animal.repository.AnimalsRepositoryImpl;
 
 import java.util.List;
 import java.util.Map;
@@ -33,9 +34,9 @@ public class SpringAnimalApplication {
         CreateAnimalService  createAnimalService = ctx.getBean("createAnimalService", CreateAnimalService.class);
         Map<String, List<Animal>> animals = createAnimalService.createAnimals(100);
 
-//        AnimalsRepositoryImpl animalsRepository = ctx.getBean("animalsRepositoryImpl", AnimalsRepositoryImpl.class);
-//        Map<Animal, Integer> olderAnimals = animalsRepository.findOlderAnimal(animals.get("Cat"), 5);
-//        System.out.println(olderAnimals.toString());
+        AnimalsRepositoryImpl animalsRepository = ctx.getBean("animalsRepositoryImpl", AnimalsRepositoryImpl.class);
+        Map<Animal, Integer> olderAnimals = animalsRepository.findOlderAnimal(animals.get("Cat"), 5);
+        System.out.println(olderAnimals.toString());
 
         ResultReader resultReader = ctx.getBean("resultReader", ResultReader.class);
         resultReader.logAnimalDataFromFile("src/main/resources/results/findOlderAnimals.json");
