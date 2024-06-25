@@ -32,7 +32,7 @@ public class SpringAnimalApplication {
 
     private static void app(ApplicationContext ctx) {
         CreateAnimalService  createAnimalService = ctx.getBean("createAnimalService", CreateAnimalService.class);
-        Map<String, List<Animal>> animals = createAnimalService.createAnimals(100);
+        Map<String, List<Animal>> animals = createAnimalService.createAnimals(100, null);
 
         AnimalsRepositoryImpl animalsRepository = ctx.getBean("animalsRepositoryImpl", AnimalsRepositoryImpl.class);
         Map<Animal, Integer> olderAnimals = animalsRepository.findOlderAnimal(animals.get("Cat"), 5);

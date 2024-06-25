@@ -22,7 +22,7 @@ public class AnimalsRepositoryImpl implements  AnimalRepository {
 
     @PostConstruct
     private void fillStorage() {
-        createAnimalService.createAnimals();
+        createAnimalService.createAnimals(null);
     }
     private void writeToFile(Map<Animal, Integer> animals) {
         File file = new File("src/main/resources/results/findOlderAnimals.json");
