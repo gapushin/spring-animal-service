@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: springAnimal
+
+animal:
+  names:
+    - Musya
+    - Busya
+    - Aurora
+    - Linda
+    - Patric
+  breeds:
+    - doberman
+    - mobs
+    - labradudel
+    - kitovaya
+    - bengal
+  costs:
+    - 100
+    - 200
+    - 300
+    - 400
+    - 500
+  characters:
+    - wired
+    - funny
+    - angry
+    - slowly
+    - cute
+
+
